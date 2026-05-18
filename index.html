@@ -16,23 +16,33 @@
 
   <!-- ESTILOS -->
   <style>
+
+    /* ANIMACIÓN DE FONDO */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #ffffff, #e6e6e6, #f7f7f7);
+      background-size: 300% 300%;
+      animation: bgMove 12s ease infinite;
       color: #222;
-      animation: fadeIn 0.8s ease-in-out;
+      scroll-behavior: smooth;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
+    /* MENÚ FIJO */
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      padding: 20px 10px;
       text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #ffffff, #d9d9d9);
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
@@ -42,7 +52,7 @@
     }
 
     nav a {
-      margin: 0 10px;
+      margin: 0 12px;
       color: #333;
       text-decoration: none;
       font-weight: bold;
@@ -68,34 +78,42 @@
       background: #c72f3b;
     }
 
+    /* SECCIONES */
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
     /* GALERÍA */
     .galeria-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
     }
 
     .galeria-item {
       background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .galeria-item:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     .galeria-item img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: zoom-in;
       transition: 0.3s;
     }
 
     .galeria-item p {
-      margin-top: 8px;
+      margin-top: 10px;
       font-size: 14px;
       color: #555;
     }
@@ -105,35 +123,43 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       display: none;
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      animation: fadeIn 0.3s ease;
     }
 
     .zoom img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     /* DROPSHIPPING */
     .card {
       background: #fff;
       padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     .card img {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
   </style>
@@ -150,8 +176,6 @@
   <!-- HEADER -->
   <header>
     <h1>Proyecto MT-09</h1>
-    <p>Rutas, mods y vida sobre dos ruedas.</p>
-
     <nav>
       <a href="#instagram">Instagram</a>
       <a href="#galeria">Galería</a>
@@ -161,14 +185,14 @@
   </header>
 
   <!-- INSTAGRAM -->
-  <section id="instagram" style="padding:40px 20px;">
+  <section id="instagram">
     <h2>Instagram</h2>
     <p>Sígueme para ver más contenido de la moto.</p>
     <a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn">Ir a Instagram</a>
   </section>
 
   <!-- GALERÍA -->
-  <section id="galeria" style="padding:40px 20px;">
+  <section id="galeria">
     <h2>Galería</h2>
 
     <div class="galeria-grid">
@@ -192,7 +216,7 @@
   </section>
 
   <!-- DROPSHIPPING -->
-  <section id="dropshipping" style="padding:40px 20px;">
+  <section id="dropshipping">
     <h2>Productos recomendados</h2>
     <p style="color:#555;">No vendo directamente estos productos; son enlaces externos.</p>
 
@@ -216,7 +240,7 @@
   </section>
 
   <!-- SOBRE -->
-  <section id="sobre" style="padding:40px 20px;">
+  <section id="sobre">
     <h2>Sobre el proyecto</h2>
     <p>Proyecto personal dedicado a mi Yamaha MT-09 SP. Aquí comparto rutas, modificaciones y contenido relacionado con el mundo de las motos.</p>
 
@@ -238,3 +262,4 @@
 
 </body>
 </html>
+
