@@ -5,628 +5,464 @@
   <title>Proyecto MT-09</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- GOOGLE SITE VERIFICATION -->
-  <meta name="google-site-verification" content="gFhXvQreMD-EdmYRfdr7V-hrc7HQqdCiP4CwMEmISy4" />
-
   <!-- SEO -->
   <meta name="description" content="Proyecto MT-09 SP CP3. Galería, rutas, mods, contenido motero e Instagram @mt09sp_cp3.">
   <meta name="keywords" content="MT09, MT-09 SP, Yamaha MT09, moto, rutas, mods, motovlog, mt09sp_cp3">
   <meta name="author" content="Proyecto MT-09">
-  <meta name="robots" content="index, follow">
 
   <!-- FAVICON -->
   <link rel="icon" href="img/favicon-moto.png">
 
   <style>
     :root {
-      --bg-main: #05060a;
-      --bg-section: #0c0f16;
+      --bg: #0b0c10;
+      --card: #111218;
       --accent: #ff4b2b;
-      --accent-soft: #ff7a57;
-      --text-main: #f5f5f5;
-      --text-muted: #a0a4b8;
-      --card-bg: #11141d;
-      --border-soft: rgba(255,255,255,0.06);
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.6);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-      --transition-fast: 0.25s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      --text: #f5f5f5;
+      --muted: #9aa0b5;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.4);
+      --transition: 0.25s ease;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1b1f2f 0, #05060a 55%, #020308 100%);
-      color: var(--text-main);
-      min-height: 100vh;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    a {
-      color: inherit;
-    }
-
-    /* HEADER FIJO */
-    .top-bar {
+    /* HEADER */
+    header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(90deg, rgba(5,6,10,0.92), rgba(5,6,10,0.85));
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.45);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .top-bar-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 10px 16px;
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 18px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      display: flex;
       align-items: center;
-      gap: 10px;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #ffb199 18%, #ff4b2b 55%, #1b1f2f 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 800;
-      color: #05060a;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.12);
-    }
-
-    .logo-text-main {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-
-    .logo-text-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: flex;
-      gap: 14px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    nav a {
-      position: relative;
-      padding: 4px 0;
-      color: var(--text-muted);
+    .nav a {
+      color: var(--muted);
       text-decoration: none;
-      transition: color var(--transition-fast);
+      margin-left: 16px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: var(--transition);
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 999px;
-      transition: width var(--transition-fast);
-    }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
-    nav a:hover::after {
-      width: 100%;
+    .nav a:hover {
+      color: var(--text);
     }
 
     /* HERO */
     .hero {
-      max-width: 1120px;
-      margin: 18px auto 0;
-      padding: 24px 16px 40px;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 18px;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 26px;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
       align-items: center;
     }
 
-    .hero-main-title {
-      font-size: clamp(28px, 4vw, 38px);
+    .hero h1 {
+      font-size: 38px;
       font-weight: 800;
+      text-transform: uppercase;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .hero-highlight {
-      color: var(--accent-soft);
-    }
-
-    .hero-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 460px;
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
       line-height: 1.6;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-      color: #05060a;
-      border-radius: 999px;
+    .btn {
+      display: inline-block;
       padding: 10px 20px;
-      font-size: 13px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 999px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 12px 30px rgba(255,75,43,0.45);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: var(--transition);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 16px 40px rgba(255,75,43,0.6);
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
     }
 
-    .hero-image {
-      width: 100%;
-      border-radius: var(--radius-lg);
+    /* HERO CARD (imagen redonda + specs) */
+    .hero-card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .hero-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero-img-round {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
+      margin: auto;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(255,255,255,0.08);
     }
 
-    .hero-image img {
+    .hero-img-round img {
       width: 100%;
-      display: block;
+      height: 100%;
       object-fit: cover;
     }
+
+    .hero-specs {
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* SECTION */
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 18px;
+    }
+
+    .section h2 {
+      font-size: 26px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .section span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* GALLERY */
+    .gallery {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ZOOM */
+    #zoom {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    #zoom img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* PRODUCT GRID */
+    .products-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .product-title {
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .product-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 6px 0 12px;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: var(--transition);
+    }
+
+    .btn-ghost:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 60px;
+    }
   </style>
+
+  <script>
+    function zoom(src) {
+      document.getElementById("zoom-img").src = src;
+      document.getElementById("zoom").style.display = "flex";
+    }
+    function closeZoom() {
+      document.getElementById("zoom").style.display = "none";
+    }
+  </script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <div class="logo">
-        <div class="logo-mark">MT</div>
-        <div>
-          <div class="logo-text-main">PROYECTO MT-09</div>
-          <div class="logo-text-sub">SP · CP3 · STREET</div>
-        </div>
-      </div>
-
-      <nav>
-        <a href="#instagram">Instagram</a>
-        <a href="#galeria">Galería</a>
-        <a href="#dropshipping">Recomendados</a>
-        <a href="#sobre">Sobre</a>
-      </nav>
+<header>
+  <div class="nav">
+    <div>PROYECTO MT‑09</div>
+    <div>
+      <a href="#galeria">Galería</a>
+      <a href="#recomendados">Recomendados</a>
+      <a href="#sobre">Sobre</a>
     </div>
   </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1 class="hero-main-title">
-        Vida sobre dos ruedas<br>
-        <span class="hero-highlight">MT-09 SP · CP3</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Rutas, mods y momentos con la MT-09 SP. Un proyecto personal donde se mezcla estética, sonido y carretera.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#galeria" class="btn-primary">Ver galería ↓</a>
-        <a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-primary" style="background:#fff;color:#000;">
-          Instagram
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <img src="img/principal.jpg.jpeg" alt="Imagen principal MT-09">
-    </div>
-  </section>
-<!-- INSTAGRAM -->
-<section class="section" id="instagram">
-  <div class="section-header">
-    <h2 class="section-title">Instagram</h2>
-    <span class="section-subtitle">@mt09sp_cp3</span>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Vida sobre dos ruedas</h1>
+    <p>Rutas, mods y momentos con la MT‑09 SP. Un proyecto personal donde se mezcla estética, sonido y carretera.</p>
+    <a class="btn" href="#galeria">Ver galería</a>
   </div>
 
-  <div class="insta-card">
-    <div>
-      <div class="insta-handle">Cuenta principal: <strong>@mt09sp_cp3</strong></div>
-      <div class="insta-highlight">
-        Fotos, detalles de mods, rutas y momentos con la MT-09 SP.
-      </div>
-      <a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-primary">
-        Abrir Instagram
-      </a>
-      <div class="insta-meta">
-        El feed se actualiza en Instagram. Aquí tienes una vista previa fija.
-      </div>
+  <div class="hero-card">
+    <div class="hero-img-round">
+      <img src="img/principal.jpg.jpeg">
     </div>
-
-    <div class="insta-preview">
-      <div style="background-image:url('img/moto1.jpg');"></div>
-      <div style="background-image:url('img/moto2.jpg');"></div>
-      <div style="background-image:url('img/ruta1.jpg');"></div>
-      <div style="background-image:url('img/casco.jpg');"></div>
-      <div style="background-image:url('img/sudadera.jpg');"></div>
-      <div style="background-image:url('img/moto1.jpg');"></div>
+    <div class="hero-specs">
+      Motor CP3 · Escape · Mods<br>
+      Proyecto MT‑09 SP
     </div>
   </div>
 </section>
 
 <!-- GALERÍA -->
 <section class="section" id="galeria">
-  <div class="section-header">
-    <h2 class="section-title">Galería</h2>
-    <span class="section-subtitle">Rutas · Detalles · Momentos</span>
-  </div>
+  <h2>Galería</h2>
+  <span>Rutas · Detalles · Momentos</span>
 
-  <div class="gallery-grid">
-
-    <div class="gallery-item">
-      <div class="gallery-img-wrap" onclick="openZoom('img/moto1.jpg')">
-        <img src="img/moto1.jpg" alt="MT-09 lista para la ruta">
-      </div>
-      <p class="gallery-caption">MT-09 lista para salir, configuración de ruta y mods activos.</p>
+  <div class="gallery">
+    <div class="gallery-item" onclick="zoom('img/moto1.jpg')">
+      <img src="img/moto1.jpg">
     </div>
-
-    <div class="gallery-item">
-      <div class="gallery-img-wrap" onclick="openZoom('img/moto2.jpg')">
-        <img src="img/moto2.jpg" alt="Detalle del escape y mods">
-      </div>
-      <p class="gallery-caption">Detalle del escape y otros cambios estéticos y funcionales.</p>
+    <div class="gallery-item" onclick="zoom('img/moto2.jpg')">
+      <img src="img/moto2.jpg">
     </div>
-
-    <div class="gallery-item">
-      <div class="gallery-img-wrap" onclick="openZoom('img/ruta1.jpg')">
-        <img src="img/ruta1.jpg" alt="Ruta por la sierra">
-      </div>
-      <p class="gallery-caption">Ruta por la sierra, curvas y paisaje acompañando al CP3.</p>
+    <div class="gallery-item" onclick="zoom('img/ruta1.jpg')">
+      <img src="img/ruta1.jpg">
     </div>
-
   </div>
 </section>
 
 <!-- RECOMENDADOS -->
-<section class="section" id="dropshipping">
-  <div class="section-header">
-    <h2 class="section-title">Recomendados</h2>
-    <span class="section-subtitle">Equipamiento · Ropa · Accesorios</span>
-  </div>
+<section class="section" id="recomendados">
+  <h2>Recomendados</h2>
+  <span>Equipamiento · Ropa · Accesorios</span>
 
-  <!-- 🪖 CASCOS -->
-  <h3 class="subcat-title">🪖 Cascos – Top 3 calidad/precio</h3>
+  <!-- CASCOS -->
+  <h3 style="margin-top:40px;">🪖 Cascos</h3>
   <div class="products-grid">
-
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/shiro-sh600.jpg" alt="Shiro SH600">
-      </div>
+      <img src="img/shiro-sh600.jpg">
       <div class="product-title">Shiro SH600</div>
       <div class="product-desc">Integral, económico y fiable.</div>
-      <div class="product-footer">
-        <a href="https://www.feuvert.es/movilidad-moto-cascos/shiro-casco-moto-integral-shiro-sh600-negro-rojo-mate-s/p200620.html" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.feuvert.es/movilidad-moto-cascos/shiro-casco-moto-integral-shiro-sh600-negro-rojo-mate-s/p200620.html">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/bld-fullface.jpg" alt="BLD FullFace DOT/ECE">
-      </div>
-      <div class="product-title">BLD FullFace DOT/ECE</div>
+      <img src="img/bld-fullface.jpg">
+      <div class="product-title">BLD FullFace</div>
       <div class="product-desc">Muy barato y homologado.</div>
-      <div class="product-footer">
-        <a href="https://es.grandado.com/products/cascos-de-motocicleta-para-hombres-y-mujeres-casco-de-cara-completa-para-carreras-de-cuesta-abajo-casco-capacete-de-moto-aprobado-por-dot-para-kask" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://es.grandado.com/products/cascos-de-motocicleta-para-hombres-y-mujeres-casco-de-cara-completa-para-carreras-de-cuesta-abajo-casco-capacete-de-moto-aprobado-por-dot-para-kask">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/scorpion-exotech-evo.jpg" alt="Scorpion ExoTech EVO">
-      </div>
+      <img src="img/scorpion-exotech-evo.jpg">
       <div class="product-title">Scorpion ExoTech EVO</div>
       <div class="product-desc">Modular premium a precio contenido.</div>
-      <div class="product-footer">
-        <a href="https://www.tradeinn.com/motardinn/es/scorpion-casco-modular-exo-tech-evo/139815601/p" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.tradeinn.com/motardinn/es/scorpion-casco-modular-exo-tech-evo/139815601/p">Ver</a>
     </div>
-
   </div>
 
-  <!-- 👕 SUDADERAS -->
-  <h3 class="subcat-title">👕 Sudaderas – Top 3 calidad/precio</h3>
+  <!-- SUDADERAS -->
+  <h3 style="margin-top:40px;">👕 Sudaderas</h3>
   <div class="products-grid">
-
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/vaster-aramida.jpg" alt="Vaster Moto Aramida">
-      </div>
+      <img src="img/vaster-aramida.jpg">
       <div class="product-title">Vaster Moto Aramida</div>
       <div class="product-desc">Protecciones CE y aramida por muy poco.</div>
-      <div class="product-footer">
-        <a href="https://es.findthedeal.org/p/B0F2HTWQ6M" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://es.findthedeal.org/p/B0F2HTWQ6M">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/macna-granyte.jpg" alt="Macna Granyte">
-      </div>
+      <img src="img/macna-granyte.jpg">
       <div class="product-title">Macna Granyte</div>
       <div class="product-desc">Marca premium a precio bajo.</div>
-      <div class="product-footer">
-        <a href="https://www.xlmoto.es/product/sudadera-de-moto-macna-granyte_pid-PIA-403966" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.xlmoto.es/product/sudadera-de-moto-macna-granyte_pid-PIA-403966">Ver</a>
     </div>
-
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/pure-racer-draw1.jpg" alt="Pure Racer Draw 1">
-      </div>
-      <div class="product-title">Pure Racer Draw 1</div>
-      <div class="product-desc">Estilo motero auténtico y buen precio.</div>
-      <div class="product-footer">
-        <a href="https://www.tradeinn.com/motardinn/es/pure-racer-sudadera-moto-draw-1/142982934/p" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
-    </div>
-
   </div>
 
-  <!-- 👕 CAMISETAS -->
-  <h3 class="subcat-title">👕 Camisetas – Top 3 calidad/precio</h3>
+  <!-- CAMISETAS -->
+  <h3 style="margin-top:40px;">👕 Camisetas</h3>
   <div class="products-grid">
-
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/kruskis-evolution.jpg" alt="Kruskis Evolution Motard">
-      </div>
-      <div class="product-title">Kruskis Evolution Motard</div>
+      <img src="img/kruskis-evolution.jpg">
+      <div class="product-title">Kruskis Evolution</div>
       <div class="product-desc">100% algodón premium.</div>
-      <div class="product-footer">
-        <a href="https://www.tradeinn.com/motardinn/es/kruskis-camiseta-de-manga-corta-evolution-motard/142698794/p" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.tradeinn.com/motardinn/es/kruskis-camiseta-de-manga-corta-evolution-motard/142698794/p">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/mc1-tt.jpg" alt="MC1 TT">
-      </div>
+      <img src="img/mc1-tt.jpg">
       <div class="product-title">MC1 TT</div>
-      <div class="product-desc">Motera clásica, muy buena relación calidad/precio.</div>
-      <div class="product-footer">
-        <a href="https://es.grandado.com/products/camiseta-negra-de-motocicleta-para-hombre-camisa-mc-1-tt" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <div class="product-desc">Motera clásica y económica.</div>
+      <a class="btn-ghost" target="_blank" href="https://es.grandado.com/products/camiseta-negra-de-motocicleta-para-hombre-camisa-mc-1-tt">Ver</a>
     </div>
-
-    <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/kawasaki-fox.jpg" alt="Kawasaki FOX">
-      </div>
-      <div class="product-title">Kawasaki FOX</div>
-      <div class="product-desc">Diseño racing con logos FOX y Kawasaki.</div>
-      <div class="product-footer">
-        <a href="#" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
-    </div>
-
   </div>
 
-  <!-- 👕 POLOS -->
-  <h3 class="subcat-title">👕 Polos – Top 3 calidad/precio</h3>
+  <!-- POLOS -->
+  <h3 style="margin-top:40px;">👕 Polos</h3>
   <div class="products-grid">
-
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/bmw-polo.jpg" alt="BMW Motorrad Polo Técnico">
-      </div>
-      <div class="product-title">BMW Motorrad Polo Técnico</div>
+      <img src="img/bmw-polo.jpg">
+      <div class="product-title">BMW Motorrad Polo</div>
       <div class="product-desc">Técnico y duradero.</div>
-      <div class="product-footer">
-        <a href="https://www.ebay.es/itm/304112582315" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.ebay.es/itm/304112582315">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/venum-motorsport-polo.jpg" alt="Venum Motorsport Polo">
-      </div>
+      <img src="img/venum-motorsport-polo.jpg">
       <div class="product-title">Venum Motorsport Polo</div>
       <div class="product-desc">Marca deportiva premium.</div>
-      <div class="product-footer">
-        <a href="https://www.motoblouz.es/ropa-casual-sportswear-46544-c.html?product=344546" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.motoblouz.es/ropa-casual-sportswear-46544-c.html?product=344546">Ver</a>
     </div>
-
   </div>
 
-  <!-- 🧤 GUANTES -->
-  <h3 class="subcat-title">🧤 Guantes – Top 3 calidad/precio</h3>
+  <!-- GUANTES -->
+  <h3 style="margin-top:40px;">🧤 Guantes</h3>
   <div class="products-grid">
-
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/evermotor-touch.jpg" alt="Evermotor Verano Touch">
-      </div>
+      <img src="img/evermotor-touch.jpg">
       <div class="product-title">Evermotor Verano Touch</div>
       <div class="product-desc">Táctiles, ventilados y baratos.</div>
-      <div class="product-footer">
-        <a href="https://es.findthedeal.org/p/B0F9WLKNRT" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://es.findthedeal.org/p/B0F9WLKNRT">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/gms-vitoro.jpg" alt="GMS Vitoro WP">
-      </div>
+      <img src="img/gms-vitoro.jpg">
       <div class="product-title">GMS Vitoro WP</div>
-      <div class="product-desc">Impermeables y muy equilibrados.</div>
-      <div class="product-footer">
-        <a href="https://www.xlmoto.es/product/guantes-de-moto-gms-vitoro-wp_pid-PIA-464676" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <div class="product-desc">Impermeables y equilibrados.</div>
+      <a class="btn-ghost" target="_blank" href="https://www.xlmoto.es/product/guantes-de-moto-gms-vitoro-wp_pid-PIA-464676">Ver</a>
     </div>
-
   </div>
 
-  <!-- 🧥 CHAQUETAS -->
-  <h3 class="subcat-title">🧥 Chaquetas – Top 3 calidad/precio</h3>
+  <!-- CHAQUETAS -->
+  <h3 style="margin-top:40px;">🧥 Chaquetas</h3>
   <div class="products-grid">
-
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/raxus-coolpro.jpg" alt="RAXUS Track CoolPro">
-      </div>
+      <img src="img/raxus-coolpro.jpg">
       <div class="product-title">RAXUS Track CoolPro</div>
-      <div class="product-desc">Verano, protecciones CE y muy barata.</div>
-      <div class="product-footer">
-        <a href="https://es.findthedeal.org/p/B09841WVNC" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <div class="product-desc">Verano, protecciones CE y barata.</div>
+      <a class="btn-ghost" target="_blank" href="https://es.findthedeal.org/p/B09841WVNC">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/oxford-jacket.jpg" alt="Oxford Moto Jacket">
-      </div>
+      <img src="img/oxford-jacket.jpg">
       <div class="product-title">Oxford Moto Jacket</div>
       <div class="product-desc">Ventilada y cómoda.</div>
-      <div class="product-footer">
-        <a href="https://es.which.one/p/B07WPHN97P" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://es.which.one/p/B07WPHN97P">Ver</a>
     </div>
 
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="img/gms-neo-wp.jpg" alt="GMS Neo WP">
-      </div>
+      <img src="img/gms-neo-wp.jpg">
       <div class="product-title">GMS Neo WP</div>
       <div class="product-desc">Impermeable y con protecciones CE.</div>
-      <div class="product-footer">
-        <a href="https://www.xlmoto.es/product/chaqueta-de-moto-gms-neo-wp_pid-PIA-417688" target="_blank" class="btn-ghost">Ver producto</a>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SOBRE -->
-<section class="section" id="sobre">
-  <div class="section-header">
-    <h2 class="section-title">Sobre el proyecto</h2>
-    <span class="section-subtitle">MT-09 SP · CP3</span>
-  </div>
-
-  <div class="about-card">
-    <div>
-      <span class="about-badge">Proyecto personal</span>
-      <p class="about-text">
-        Este proyecto gira en torno a una Yamaha MT-09 SP con motor CP3. La idea es documentar rutas,
-        modificaciones y detalles estéticos, además de recopilar fotos y momentos que definan la moto
-        tal y como se vive en el día a día.
-      </p>
-      <ul class="about-list">
-        <li>• Rutas por carretera y sierra</li>
-        <li>• Mods estéticos y funcionales</li>
-        <li>• Configuraciones y pequeños detalles</li>
-      </ul>
-      <div class="about-tagline">
-        Más que una moto: un proyecto en constante evolución.
-      </div>
-    </div>
-
-    <div class="about-side">
-      <div class="about-side-row">
-        <span class="about-side-label">Modelo</span>
-        <span class="about-side-value">Yamaha MT-09 SP</span>
-      </div>
-      <div class="about-side-row">
-        <span class="about-side-label">Motor</span>
-        <span class="about-side-value">CP3</span>
-      </div>
-      <div class="about-side-row">
-        <span class="about-side-label">Enfoque</span>
-        <span class="about-side-value">Rutas · Mods · Fotos</span>
-      </div>
-      <div class="about-side-row">
-        <span class="about-side-label">Instagram</span>
-        <span class="about-side-value">@mt09sp_cp3</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span>Proyecto MT-09 · GitHub Pages</span>
-  <span>Instagram: <a href="https://www.instagram.com/mt09sp_cp3" target="_blank">@mt09sp_cp3</a></span>
-</footer>
-
-<!-- ZOOM SCRIPT -->
-<script>
-  function openZoom(src) {
-    const overlay = document.getElementById('zoomOverlay');
-    const img = document.getElementById('zoomImage');
-    img.src = src;
-    overlay.style.display = 'flex';
-  }
-
-  function closeZoom() {
-    const overlay = document.getElementById('zoomOverlay');
-    overlay.style.display = 'none';
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeZoom();
-    }
-  });
-</script>
+      <a class="btn-ghost" target="_blank" href="https://www.xlmoto.es/product/
 
 </body>
 </html>
