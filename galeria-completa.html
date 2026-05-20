@@ -4,7 +4,129 @@
 <meta charset="UTF-8">
 <title>Galería completa</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+
+<!-- ============================
+     ESTILOS DE LA GALERÍA
+     ============================ -->
+<style>
+
+/* Grid de 6 filas × 5 columnas */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+/* Cada imagen */
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hover */
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+/* ZOOM */
+#zoomOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#zoomOverlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* BOTONES */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #ff6b00;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .25s ease;
+}
+
+.btn-primary:hover {
+    background: #ff7f26;
+}
+
+.btn-ghost {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 2px solid #ff6b00;
+    color: #ff6b00;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .25s ease, color .25s ease;
+}
+
+.btn-ghost:hover {
+    background: #ff6b00;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+body {
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-subtitle {
+    display: block;
+    text-align: center;
+    opacity: .7;
+    margin-top: 6px;
+}
+
+</style>
 </head>
 
 <body>
@@ -16,208 +138,145 @@
     <span class="section-subtitle">Todas las imágenes del proyecto</span>
 </div>
 
+<!-- ============================
+     GALERÍA DE 30 IMÁGENES
+     ============================ -->
+
 <div class="gallery-grid">
-    <!-- GENERACIÓN AUTOMÁTICA DE 20 IMÁGENES -->
-    <!-- 1.jpeg → 20.jpeg -->
-    <!-- Copia/pega más si algún día quieres ampliar -->
-    
-    <!-- SCRIPT GENERADO MANUALMENTE PARA EVITAR ERRORES -->
-    
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/1.jpeg')">
-            <img src="img/1.jpeg">
-        </div>
-    </div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/2.jpeg')">
-            <img src="img/2.jpeg">
-        </div>
-    </div>
+<!-- GENERADO PARA 1 → 30 -->
+<!-- Puedes añadir más copiando un bloque -->
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/3.jpeg')">
-            <img src="img/3.jpeg">
-        </div>
-    </div>
+<!-- BLOQUES -->
+<!-- Cada uno usa openZoom('img/X.jpeg') -->
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/4.jpeg')">
-            <img src="img/4.jpeg">
-        </div>
-    </div>
+<!-- 1 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/1.jpeg')"><img src="img/1.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/5.jpeg')">
-            <img src="img/5.jpeg">
-        </div>
-    </div>
+<!-- 2 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/2.jpeg')"><img src="img/2.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/6.jpeg')">
-            <img src="img/6.jpeg">
-        </div>
-    </div>
+<!-- 3 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/3.jpeg')"><img src="img/3.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/7.jpeg')">
-            <img src="img/7.jpeg">
-        </div>
-    </div>
+<!-- 4 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/4.jpeg')"><img src="img/4.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/8.jpeg')">
-            <img src="img/8.jpeg">
-        </div>
-    </div>
+<!-- 5 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/5.jpeg')"><img src="img/5.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/9.jpeg')">
-            <img src="img/9.jpeg">
-        </div>
-    </div>
+<!-- 6 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/6.jpeg')"><img src="img/6.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/10.jpeg')">
-            <img src="img/10.jpeg">
-        </div>
-    </div>
+<!-- 7 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/7.jpeg')"><img src="img/7.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/11.jpeg')">
-            <img src="img/11.jpeg">
-        </div>
-    </div>
+<!-- 8 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/8.jpeg')"><img src="img/8.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/12.jpeg')">
-            <img src="img/12.jpeg">
-        </div>
-    </div>
+<!-- 9 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/9.jpeg')"><img src="img/9.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/13.jpeg')">
-            <img src="img/13.jpeg">
-        </div>
-    </div>
+<!-- 10 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/10.jpeg')"><img src="img/10.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/14.jpeg')">
-            <img src="img/14.jpeg">
-        </div>
-    </div>
+<!-- 11 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/11.jpeg')"><img src="img/11.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/15.jpeg')">
-            <img src="img/15.jpeg">
-        </div>
-    </div>
+<!-- 12 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/12.jpeg')"><img src="img/12.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/16.jpeg')">
-            <img src="img/16.jpeg">
-        </div>
-    </div>
+<!-- 13 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/13.jpeg')"><img src="img/13.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/17.jpeg')">
-            <img src="img/17.jpeg">
-        </div>
-    </div>
+<!-- 14 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/14.jpeg')"><img src="img/14.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/18.jpeg')">
-            <img src="img/18.jpeg">
-        </div>
-    </div>
+<!-- 15 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/15.jpeg')"><img src="img/15.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/19.jpeg')">
-            <img src="img/19.jpeg">
-        </div>
-    </div>
+<!-- 16 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/16.jpeg')"><img src="img/16.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/20.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 17 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/17.jpeg')"><img src="img/17.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/21.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 18 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/18.jpeg')"><img src="img/18.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/22.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 19 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/19.jpeg')"><img src="img/19.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/23.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 20 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/20.jpeg')"><img src="img/20.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/24.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 21 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/21.jpeg')"><img src="img/21.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/25.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 22 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/22.jpeg')"><img src="img/22.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/26.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 23 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/23.jpeg')"><img src="img/23.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/27.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 24 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/24.jpeg')"><img src="img/24.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/28.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
-    
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/29.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
+<!-- 25 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/25.jpeg')"><img src="img/25.jpeg"></div></div>
 
-    <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/30.jpeg')">
-            <img src="img/20.jpeg">
-        </div>
-    </div>
-    
+<!-- 26 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/26.jpeg')"><img src="img/26.jpeg"></div></div>
+
+<!-- 27 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/27.jpeg')"><img src="img/27.jpeg"></div></div>
+
+<!-- 28 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/28.jpeg')"><img src="img/28.jpeg"></div></div>
+
+<!-- 29 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/29.jpeg')"><img src="img/29.jpeg"></div></div>
+
+<!-- 30 -->
+<div class="gallery-item"><div class="gallery-img-wrap" onclick="openZoom('img/30.jpeg')"><img src="img/30.jpeg"></div></div>
+
 </div>
 
-<!-- MENSAJE ACLARATORIO -->
-<p style="text-align:center; margin-top:25px; color:var(--text-muted); font-size:14px;">
-    Esta no es toda la galería. El resto de fotos, vídeos y contenido están en mis cuentas de Instagram:<br>
-    <a href="https://www.instagram.com/mt09sp_cp3" target="_blank">@mt09sp_cp3</a> · 
-    <a href="https://www.instagram.com/mendozaa_020" target="_blank">@mendozaa_020</a>
+<!-- ============================
+     MENSAJE FINAL + BOTONES
+     ============================ -->
+
+<p style="text-align:center; margin-top:25px; opacity:.7; font-size:14px;">
+    Esta no es toda la galería. El resto de fotos, vídeos y contenido están en mis cuentas de Instagram:<br><br>
+    <a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-ghost">@mt09sp_cp3</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.instagram.com/mendozaa_020" target="_blank" class="btn-ghost">@mendozaa_020</a>
 </p>
 
-<!-- BOTÓN PARA VOLVER A LA PÁGINA PRINCIPAL -->
 <div style="text-align:center; margin-top:30px;">
     <a href="index.html" class="btn-primary">Volver a la página principal</a>
 </div>
 
 </section>
 
+<!-- ============================
+     SCRIPT DE ZOOM
+     ============================ -->
+<div id="zoomOverlay" onclick="closeZoom()">
+    <img id="zoomImg">
+</div>
+
+<script>
+function openZoom(src) {
+    document.getElementById("zoomImg").src = src;
+    document.getElementById("zoomOverlay").style.display = "flex";
+}
+
+function closeZoom() {
+    document.getElementById("zoomOverlay").style.display = "none";
+}
+</script>
+
 </body>
 </html>
+
