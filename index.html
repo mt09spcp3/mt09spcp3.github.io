@@ -1,987 +1,783 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Proyecto MT-09</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- GOOGLE SITE VERIFICATION (si ya no la necesitas, puedes borrar esta línea) -->
-  <meta name="google-site-verification" content="gFhXvQreMD-EdmYRfdr7V-hrc7HQqdCiP4CwMEmISy4" />
-
-  <!-- SEO -->
-  <meta name="description" content="Proyecto MT-09 SP CP3. Galería, rutas, mods, contenido motero e Instagram @mt09sp_cp3.">
-  <meta name="keywords" content="MT09, MT-09 SP, Yamaha MT09, moto, rutas, mods, motovlog, mt09sp_cp3">
-  <meta name="author" content="Proyecto MT-09">
-  <meta name="robots" content="index, follow">
-
-  <!-- FAVICON (sube un icono de moto a img/favicon-moto.png) -->
-  <link rel="icon" href="img/favicon-moto.png">
-
-  <style>
-    :root {
-      --bg-main: #05060a;
-      --bg-section: #0c0f16;
-      --accent: #ff4b2b;
-      --accent-soft: #ff7a57;
-      --text-main: #f5f5f5;
-      --text-muted: #a0a4b8;
-      --card-bg: #11141d;
-      --border-soft: rgba(255,255,255,0.06);
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.6);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-      --transition-fast: 0.25s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1b1f2f 0, #05060a 55%, #020308 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    /* HEADER FIJO + HERO */
-    .top-bar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(90deg, rgba(5,6,10,0.92), rgba(5,6,10,0.85));
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .top-bar-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #ffb199 18%, #ff4b2b 55%, #1b1f2f 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 800;
-      color: #05060a;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.12);
-    }
-
-    .logo-text-main {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-
-    .logo-text-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: flex;
-      gap: 14px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    nav a {
-      position: relative;
-      padding: 4px 0;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 999px;
-      transition: width var(--transition-fast);
-    }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .top-cta {
-      display: none;
-    }
-
-    /* HERO */
-    .hero {
-      max-width: 1120px;
-      margin: 18px auto 0;
-      padding: 24px 16px 40px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 26px;
-      align-items: center;
-    }
-
-    .hero-main-title {
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .hero-highlight {
-      color: var(--accent-soft);
-    }
-
-    .hero-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 460px;
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text-muted);
-      background: rgba(10,12,20,0.8);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-      color: #05060a;
-      border-radius: 999px;
-      padding: 10px 20px;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 12px 30px rgba(255,75,43,0.45);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 16px 40px rgba(255,75,43,0.6);
-    }
-
-    .btn-ghost {
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(10,12,20,0.7);
-      color: var(--text-muted);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition-fast);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent-soft);
-      color: #ffffff;
-      background: rgba(15,18,30,0.9);
-    }
-
-    .hero-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, rgba(255,75,43,0.18), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(0,180,255,0.18), transparent 55%),
-                  var(--bg-section);
-      border-radius: var(--radius-lg);
-      padding: 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(5,6,10,0.8);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--text-muted);
-    }
-
-    .hero-bike {
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: var(--radius-md);
-      background: radial-gradient(circle at 20% 20%, #ffffff 0, #ffb199 18%, #ff4b2b 40%, #05060a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bike-inner {
-      width: 88%;
-      height: 70%;
-      border-radius: 999px;
-      border: 2px solid rgba(255,255,255,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 55%);
-    }
-
-    .hero-bike-text {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #05060a;
-      text-align: center;
-    }
-
-    .hero-bike-tag {
-      position: absolute;
-      bottom: 10px;
-      right: 14px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(5,6,10,0.85);
-      color: var(--text-main);
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .hero-specs {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .hero-spec-pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15,18,30,0.9);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    /* SECCIONES GENERALES */
-    .section {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 40px 16px 32px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .section-subtitle {
-      font-size: 12px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    /* INSTAGRAM */
-    .insta-card {
-      background: var(--bg-section);
-      border-radius: var(--radius-lg);
-      padding: 18px 16px;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: center;
-    }
-
-    .insta-handle {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .insta-highlight {
-      font-size: 13px;
-      color: var(--accent-soft);
-      margin-bottom: 10px;
-    }
-
-    .insta-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-top: 8px;
-    }
-
-    .insta-preview {
-      border-radius: var(--radius-md);
-      background: radial-gradient(circle at top, rgba(255,75,43,0.18), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(0,180,255,0.18), transparent 55%),
-                  #05060a;
-      padding: 10px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-    }
-
-    .insta-preview div {
-      border-radius: 8px;
-      background-size: cover;
-      background-position: center;
-      aspect-ratio: 1/1;
-      filter: saturate(1.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .insta-preview div::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.45), transparent 55%);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-    }
-
-    .insta-preview div:hover::after {
-      opacity: 1;
-    }
-
-    /* GALERÍA */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-
-    .gallery-item {
-      background: var(--bg-section);
-      border-radius: var(--radius-lg);
-      padding: 10px;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .gallery-img-wrap {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      position: relative;
-      cursor: zoom-in;
-    }
-
-    .gallery-img-wrap img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.06);
-    }
-
-    .gallery-caption {
-      margin-top: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* ZOOM OVERLAY */
-    .zoom-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      padding: 16px;
-    }
-
-    .zoom-inner {
-      max-width: 1000px;
-      width: 100%;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .zoom-inner img {
-      width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: var(--radius-md);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
-    }
-
-    .zoom-close {
-      align-self: flex-end;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      cursor: pointer;
-    }
-
-    /* PRODUCTOS */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      background: var(--bg-section);
-      border-radius: var(--radius-lg);
-      padding: 12px;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .product-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .product-img-wrap {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-
-    .product-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .product-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .product-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .product-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .product-footer {
-      margin-top: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .product-price {
-      font-size: 13px;
-      color: var(--accent-soft);
-      font-weight: 600;
-    }
-
-    /* SOBRE */
-    .about-card {
-      background: var(--bg-section);
-      border-radius: var(--radius-lg);
-      padding: 18px 16px;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .about-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .about-list {
-      margin-top: 10px;
-      list-style: none;
-      font-size: 13px;
-      color: var(--text-main);
-    }
-
-    .about-list li {
-      margin-bottom: 4px;
-    }
-
-    .about-tagline {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      margin-top: 10px;
-    }
-
-    .about-badge {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      display: inline-block;
-      margin-bottom: 8px;
-      color: var(--accent-soft);
-    }
-
-    .about-side {
-      border-radius: var(--radius-md);
-      background: radial-gradient(circle at top, rgba(255,75,43,0.18), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(0,180,255,0.18), transparent 55%),
-                  #05060a;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .about-side-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .about-side-label {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    .about-side-value {
-      font-size: 12px;
-      color: var(--text-main);
-    }
-
-    /* FOOTER */
-    footer {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px 16px 32px;
-      font-size: 11px;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 24px;
-    }
-
-    footer a {
-      color: var(--accent-soft);
-      text-decoration: none;
-      font-size: 11px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .insta-card,
-      .about-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .top-bar-inner {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .hero {
-        padding-top: 18px;
-      }
-      .section {
-        padding-top: 32px;
-      }
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+
+<meta charset="UTF-8">
+<title>Proyecto MT-09</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- GOOGLE SITE VERIFICATION -->
+<meta name="google-site-verification" content="gFhXvQreMD-EdmYRfdr7V-hrc7HQqdCiP4CwMEmISy4" />
+
+<!-- SEO -->
+<meta name="description" content="Proyecto MT-09 SP CP3. Galería, rutas, mods, contenido motero e Instagram @mt09sp_cp3.">
+<meta name="keywords" content="MT09, MT-09 SP, Yamaha MT09, moto, rutas, mods, motovlog, mt09sp_cp3">
+<meta name="author" content="Proyecto MT-09">
+<meta name="robots" content="index, follow">
+
+<!-- FAVICON -->
+<link rel="icon" href="img/favicon-moto.png">
+
+<style>
+
+:root {
+--bg-main: #05060a;
+--bg-section: #0c0f16;
+--accent: #ff4b2b;
+--accent-soft: #ff7a57;
+--text-main: #f5f5f5;
+--text-muted: #a0a4b8;
+--card-bg: #11141d;
+--border-soft: rgba(255,255,255,0.06);
+--shadow-soft: 0 18px 40px rgba(0,0,0,0.6);
+--radius-lg: 18px;
+--radius-md: 12px;
+--radius-sm: 8px;
+--transition-fast: 0.25s ease;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background: radial-gradient(circle at top, #1b1f2f 0, #05060a 55%, #020308 100%);
+color: var(--text-main);
+min-height: 100vh;
+}
+
+a {
+color: inherit;
+}
+
+/* HEADER FIJO */
+.top-bar {
+position: sticky;
+top: 0;
+z-index: 1000;
+backdrop-filter: blur(14px);
+background: linear-gradient(90deg, rgba(5,6,10,0.92), rgba(5,6,10,0.85));
+border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.top-bar-inner {
+max-width: 1120px;
+margin: 0 auto;
+padding: 10px 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.logo-mark {
+width: 34px;
+height: 34px;
+border-radius: 999px;
+background: radial-gradient(circle at 30% 20%, #ffffff 0, #ffb199 18%, #ff4b2b 55%, #1b1f2f 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+font-weight: 800;
+color: #05060a;
+box-shadow: 0 0 0 2px rgba(255,255,255,0.12);
+}
+
+.logo-text-main {
+font-weight: 700;
+letter-spacing: 0.08em;
+font-size: 13px;
+text-transform: uppercase;
+}
+
+.logo-text-sub {
+font-size: 11px;
+color: var(--text-muted);
+}
+
+nav {
+display: flex;
+gap: 14px;
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+
+nav a {
+position: relative;
+padding: 4px 0;
+color: var(--text-muted);
+text-decoration: none;
+transition: color var(--transition-fast);
+}
+
+nav a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -3px;
+width: 0;
+height: 2px;
+background: var(--accent);
+border-radius: 999px;
+transition: width var(--transition-fast);
+}
+
+nav a:hover {
+color: #ffffff;
+}
+
+nav a:hover::after {
+width: 100%;
+}
+
+/* HERO */
+.hero {
+max-width: 1120px;
+margin: 18px auto 0;
+padding: 24px 16px 40px;
+display: grid;
+grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+gap: 26px;
+align-items: center;
+}
+
+.hero-main-title {
+font-size: clamp(28px, 4vw, 38px);
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+
+.hero-highlight {
+color: var(--accent-soft);
+}
+
+.hero-subtitle {
+font-size: 14px;
+color: var(--text-muted);
+max-width: 460px;
+line-height: 1.6;
+margin-bottom: 18px;
+}
+
+.hero-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 20px;
+}
+
+.tag {
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+padding: 4px 10px;
+border-radius: 999px;
+border: 1px solid rgba(255,255,255,0.12);
+color: var(--text-muted);
+background: rgba(10,12,20,0.8);
+}
+
+.hero-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+align-items: center;
+margin-bottom: 16px;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+color: #05060a;
+border-radius: 999px;
+padding: 10px 20px;
+font-size: 13px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+border: none;
+cursor: pointer;
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+box-shadow: 0 12px 30px rgba(255,75,43,0.45);
+transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+}
+
+.btn-primary:hover {
+transform: translateY(-1px);
+filter: brightness(1.05);
+box-shadow: 0 16px 40px rgba(255,75,43,0.6);
+}
+
+.btn-ghost {
+border-radius: 999px;
+padding: 9px 16px;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+border: 1px solid rgba(255,255,255,0.18);
+background: rgba(10,12,20,0.7);
+color: var(--text-muted);
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+border-color: var(--accent-soft);
+color: #ffffff;
+background: rgba(15,18,30,0.9);
+}
+
+.hero-meta {
+font-size: 11px;
+color: var(--text-muted);
+text-transform: uppercase;
+letter-spacing: 0.12em;
+}
+
+/* HERO CARD */
+.hero-card {
+background: radial-gradient(circle at top left, rgba(255,75,43,0.18), transparent 55%),
+radial-gradient(circle at bottom right, rgba(0,180,255,0.18), transparent 55%),
+var(--bg-section);
+border-radius: var(--radius-lg);
+padding: 16px;
+box-shadow: var(--shadow-soft);
+border: 1px solid var(--border-soft);
+position: relative;
+overflow: hidden;
+}
+
+.hero-card-badge {
+position: absolute;
+top: 12px;
+right: 12px;
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+padding: 4px 10px;
+border-radius: 999px;
+background: rgba(5,6,10,0.8);
+border: 1px solid rgba(255,255,255,0.18);
+color: var(--text-muted);
+}
+
+/* ZOOM OVERLAY */
+.zoom-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.9);
+display: none;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+padding: 16px;
+}
+
+.zoom-inner {
+max-width: 1000px;
+width: 100%;
+max-height: 90vh;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.zoom-inner img {
+width: 100%;
+max-height: 80vh;
+object-fit: contain;
+border-radius: var(--radius-md);
+box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+}
+
+.zoom-close {
+align-self: flex-end;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 0.16em;
+color: var(--text-muted);
+cursor: pointer;
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- ZOOM OVERLAY -->
-  <div class="zoom-overlay" id="zoomOverlay">
-    <div class="zoom-inner">
-      <span class="zoom-close" onclick="closeZoom()">CERRAR</span>
-      <img id="zoomImage" src="" alt="Foto ampliada">
-    </div>
-  </div>
+<!-- ZOOM OVERLAY -->
+<div class="zoom-overlay" id="zoomOverlay">
+<div class="zoom-inner">
+<span class="zoom-close" onclick="closeZoom()">CERRAR</span>
+<img id="zoomImage" src="" alt="Foto ampliada">
+</div>
+</div>
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <div class="logo">
-        <div class="logo-mark">MT</div>
-        <div>
-          <div class="logo-text-main">PROYECTO MT-09</div>
-          <div class="logo-text-sub">SP · CP3 · STREET</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#instagram">Instagram</a>
-        <a href="#galeria">Galería</a>
-        <a href="#dropshipping">Recomendados</a>
-        <a href="#sobre">Sobre</a>
-      </nav>
-    </div>
-  </div>
+<!-- TOP BAR -->
+<div class="top-bar">
+<div class="top-bar-inner">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1 class="hero-main-title">
-        Vida sobre dos ruedas<br>
-        <span class="hero-highlight">MT-09 SP · CP3</span>
-      </h1>
-      <p class="hero-subtitle">
-        Rutas, mods y momentos con la MT-09 SP. Un proyecto personal donde se mezcla estética, sonido y carretera.
-      </p>
+<div class="logo">
+<div class="logo-mark">MT</div>
+<div>
+<div class="logo-text-main">PROYECTO MT-09</div>
+<div class="logo-text-sub">SP · CP3 · STREET</div>
+</div>
+</div>
 
-      <div class="hero-tags">
-        <span class="tag">Yamaha MT-09 SP</span>
-        <span class="tag">CP3</span>
-        <span class="tag">Rutas · Mods · Fotos</span>
-      </div>
+<nav>
+<a href="#instagram">Instagram</a>
+<a href="#galeria">Galería</a>
+<a href="#dropshipping">Recomendados</a>
+<a href="#sobre">Sobre</a>
+</nav>
 
-      <div class="hero-actions">
-        <a href="#galeria" class="btn-primary">
-          Ver galería
-          <span>↓</span>
-        </a>
-        <a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-ghost">
-          Instagram @mt09sp_cp3
-        </a>
-      </div>
+</div>
+</div>
+<!-- HERO -->
+<section class="hero">
 
-      <div class="hero-meta">
-        Actualizado cuando hay nuevas rutas, mods o fotos de la MT-09.
-      </div>
-    </div>
+<div>
+<h1 class="hero-main-title">
+Vida sobre dos ruedas<br>
+<span class="hero-highlight">MT-09 SP · CP3</span>
+</h1>
 
-    <div class="hero-card">
-      <span class="hero-card-badge">MT-09 SP · CP3</span>
-      <div class="hero-bike">
-        <div class="hero-bike-inner">
-          <div class="hero-bike-text">
-            MT-09<br>SP
-          </div>
-          <span class="hero-bike-tag">PROYECTO STREET · CP3</span>
-        </div>
-      </div>
-      <div class="hero-specs">
-        <span class="hero-spec-pill">Motor CP3</span>
-        <span class="hero-spec-pill">Escape &amp; mods</span>
-        <span class="hero-spec-pill">Rutas &amp; fotos</span>
-      </div>
-    </div>
-  </section>
+<p class="hero-subtitle">
+Rutas, mods y momentos con la MT-09 SP. Un proyecto personal donde se mezcla estética, sonido y carretera.
+</p>
 
-  <!-- INSTAGRAM -->
-  <section class="section" id="instagram">
-    <div class="section-header">
-      <h2 class="section-title">Instagram</h2>
-      <span class="section-subtitle">@mt09sp_cp3</span>
-    </div>
+<div class="hero-tags">
+<span class="tag">Yamaha MT-09 SP</span>
+<span class="tag">CP3</span>
+<span class="tag">Rutas · Mods · Fotos</span>
+</div>
 
-    <div class="insta-card">
-      <div>
-        <div class="insta-handle">Cuenta principal: <strong>@mt09sp_cp3</strong></div>
-        <div class="insta-highlight">
-          Fotos, detalles de mods, rutas y momentos con la MT-09 SP.
-        </div>
-        <a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-primary">
-          Abrir Instagram
-        </a>
-        <div class="insta-meta">
-          El feed se actualiza en Instagram. Aquí tienes una vista previa fija.
-        </div>
-      </div>
-      <div class="insta-preview">
-        <div style="background-image:url('img/moto1.jpg');"></div>
-        <div style="background-image:url('img/moto2.jpg');"></div>
-        <div style="background-image:url('img/ruta1.jpg');"></div>
-        <div style="background-image:url('img/casco.jpg');"></div>
-        <div style="background-image:url('img/sudadera.jpg');"></div>
-        <div style="background-image:url('img/moto1.jpg');"></div>
-      </div>
-    </div>
-  </section>
+<div class="hero-actions">
+<a href="#galeria" class="btn-primary">
+Ver galería
+<span>↓</span>
+</a>
 
-  <!-- GALERÍA -->
-  <section class="section" id="galeria">
-    <div class="section-header">
-      <h2 class="section-title">Galería</h2>
-      <span class="section-subtitle">Rutas · Detalles · Momentos</span>
-    </div>
+<a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-ghost">
+Instagram @mt09sp_cp3
+</a>
+</div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/moto1.jpg')">
-          <img src="img/moto1.jpg" alt="MT-09 lista para la ruta">
-        </div>
-        <p class="gallery-caption">MT-09 lista para salir, configuración de ruta y mods activos.</p>
-      </div>
+<div class="hero-meta">
+Actualizado cuando hay nuevas rutas, mods o fotos de la MT-09.
+</div>
+</div>
 
-      <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/moto2.jpg')">
-          <img src="img/moto2.jpg" alt="Detalle del escape y mods">
-        </div>
-        <p class="gallery-caption">Detalle del escape y otros cambios estéticos y funcionales.</p>
-      </div>
+<!-- HERO CARD con imagen redonda -->
+<div class="hero-card">
 
-      <div class="gallery-item">
-        <div class="gallery-img-wrap" onclick="openZoom('img/ruta1.jpg')">
-          <img src="img/ruta1.jpg" alt="Ruta por la sierra">
-        </div>
-        <p class="gallery-caption">Ruta por la sierra, curvas y paisaje acompañando al CP3.</p>
-      </div>
-    </div>
-  </section>
+<span class="hero-card-badge">MT-09 SP · CP3</span>
 
-  <!-- PRODUCTOS RECOMENDADOS -->
-  <section class="section" id="dropshipping">
-    <div class="section-header">
-      <h2 class="section-title">Recomendados</h2>
-      <span class="section-subtitle">Equipamiento &amp; accesorios</span>
-    </div>
+<!-- IMAGEN REDONDA -->
+<div class="hero-img-round" style="
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.12);
+">
+    <img src="img/principal.jpg.jpeg" style="width:100%;height:100%;object-fit:cover;">
+</div>
 
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">
-      No vendo directamente estos productos; son recomendaciones con enlaces externos.
-    </p>
+<!-- SPECS (se mantienen debajo como pediste) -->
+<div class="hero-specs">
+<span class="hero-spec-pill">Motor CP3</span>
+<span class="hero-spec-pill">Escape &amp; mods</span>
+<span class="hero-spec-pill">Rutas &amp; fotos</span>
+</div>
 
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="img/casco.jpg" alt="Casco integral">
-        </div>
-        <div class="product-title">Casco integral</div>
-        <div class="product-desc">Casco cómodo y seguro para rutas largas, pensado para uso diario y escapadas.</div>
-        <div class="product-meta">Protección · Confort · Estilo</div>
-        <div class="product-footer">
-          <span class="product-price">Enlace externo</span>
-          <a href="https://ENLACE_DEL_PRODUCTO" target="_blank" class="btn-ghost">Ver producto</a>
-        </div>
-      </div>
+</div>
+</section>
 
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <img src="img/sudadera.jpg" alt="Sudadera motera">
-        </div>
-        <div class="product-title">Sudadera motera</div>
-        <div class="product-desc">Sudadera con diseño motero, perfecta para el día a día y ambiente de ruta.</div>
-        <div class="product-meta">Estética · Casual · Moto</div>
-        <div class="product-footer">
-          <span class="product-price">Enlace externo</span>
-          <a href="https://ENLACE_DEL_PRODUCTO" target="_blank" class="btn-ghost">Ver producto</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- INSTAGRAM -->
+<section class="section" id="instagram">
 
-  <!-- SOBRE EL PROYECTO -->
-  <section class="section" id="sobre">
-    <div class="section-header">
-      <h2 class="section-title">Sobre el proyecto</h2>
-      <span class="section-subtitle">MT-09 SP · CP3</span>
-    </div>
+<div class="section-header">
+<h2 class="section-title">Instagram</h2>
+<span class="section-subtitle">@mt09sp_cp3</span>
+</div>
 
-    <div class="about-card">
-      <div>
-        <span class="about-badge">Proyecto personal</span>
-        <p class="about-text">
-          Este proyecto gira en torno a una Yamaha MT-09 SP con motor CP3. La idea es documentar rutas,
-          modificaciones y detalles estéticos, además de recopilar fotos y momentos que definan la moto
-          tal y como se vive en el día a día.
-        </p>
-        <ul class="about-list">
-          <li>• Rutas por carretera y sierra</li>
-          <li>• Mods estéticos y funcionales</li>
-          <li>• Configuraciones y pequeños detalles</li>
-        </ul>
-        <div class="about-tagline">
-          Más que una moto: un proyecto en constante evolución.
-        </div>
-      </div>
-      <div class="about-side">
-        <div class="about-side-row">
-          <span class="about-side-label">Modelo</span>
-          <span class="about-side-value">Yamaha MT-09 SP</span>
-        </div>
-        <div class="about-side-row">
-          <span class="about-side-label">Motor</span>
-          <span class="about-side-value">CP3</span>
-        </div>
-        <div class="about-side-row">
-          <span class="about-side-label">Enfoque</span>
-          <span class="about-side-value">Rutas · Mods · Fotos</span>
-        </div>
-        <div class="about-side-row">
-          <span class="about-side-label">Instagram</span>
-          <span class="about-side-value">@mt09sp_cp3</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="insta-card">
 
-  <!-- FOOTER -->
-  <footer>
-    <span>Proyecto MT-09 · GitHub Pages</span>
-    <span>Instagram: <a href="https://www.instagram.com/mt09sp_cp3" target="_blank">@mt09sp_cp3</a></span>
-  </footer>
+<div>
+<div class="insta-handle">Cuenta principal: <strong>@mt09sp_cp3</strong></div>
 
-  <script>
-    function openZoom(src) {
-      const overlay = document.getElementById('zoomOverlay');
-      const img = document.getElementById('zoomImage');
-      img.src = src;
-      overlay.style.display = 'flex';
-    }
+<div class="insta-highlight">
+Fotos, detalles de mods, rutas y momentos con la MT-09 SP.
+</div>
 
-    function closeZoom() {
-      const overlay = document.getElementById('zoomOverlay');
-      overlay.style.display = 'none';
-    }
+<a href="https://www.instagram.com/mt09sp_cp3" target="_blank" class="btn-primary">
+Abrir Instagram
+</a>
 
-    // Cerrar zoom con ESC
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeZoom();
-      }
-    });
-  </script>
+<div class="insta-meta">
+El feed se actualiza en Instagram. Aquí tienes una vista previa fija.
+</div>
+</div>
+
+<div class="insta-preview">
+<div style="background-image:url('img/moto1.jpg');"></div>
+<div style="background-image:url('img/moto2.jpg');"></div>
+<div style="background-image:url('img/ruta1.jpg');"></div>
+<div style="background-image:url('img/casco.jpg');"></div>
+<div style="background-image:url('img/sudadera.jpg');"></div>
+<div style="background-image:url('img/moto1.jpg');"></div>
+</div>
+
+</div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section" id="galeria">
+
+<div class="section-header">
+<h2 class="section-title">Galería</h2>
+<span class="section-subtitle">Rutas · Detalles · Momentos</span>
+</div>
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+<div class="gallery-img-wrap" onclick="openZoom('img/moto1.jpg')">
+<img src="img/moto1.jpg" alt="MT-09 lista para la ruta">
+</div>
+<p class="gallery-caption">MT-09 lista para salir, configuración de ruta y mods activos.</p>
+</div>
+
+<div class="gallery-item">
+<div class="gallery-img-wrap" onclick="openZoom('img/moto2.jpg')">
+<img src="img/moto2.jpg" alt="Detalle del escape y mods">
+</div>
+<p class="gallery-caption">Detalle del escape y otros cambios estéticos y funcionales.</p>
+</div>
+
+<div class="gallery-item">
+<div class="gallery-img-wrap" onclick="openZoom('img/ruta1.jpg')">
+<img src="img/ruta1.jpg" alt="Ruta por la sierra">
+</div>
+<p class="gallery-caption">Ruta por la sierra, curvas y paisaje acompañando al CP3.</p>
+</div>
+
+</div>
+</section>
+<!-- PRODUCTOS RECOMENDADOS -->
+<section class="section" id="dropshipping">
+
+<div class="section-header">
+<h2 class="section-title">Recomendados</h2>
+<span class="section-subtitle">Equipamiento &amp; accesorios</span>
+</div>
+
+<p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">
+No vendo directamente estos productos; son recomendaciones con enlaces externos.
+</p>
+
+<!-- 🪖 CASCOS -->
+<h3 style="margin-top:30px;">🪖 Cascos</h3>
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/shiro-sh600.jpg">
+</div>
+<div class="product-title">Shiro SH600</div>
+<div class="product-desc">Integral, económico y fiable.</div>
+<div class="product-footer">
+<a href="https://www.feuvert.es/movilidad-moto-cascos/shiro-casco-moto-integral-shiro-sh600-negro-rojo-mate-s/p200620.html" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/bld-fullface.jpg">
+</div>
+<div class="product-title">BLD FullFace DOT/ECE</div>
+<div class="product-desc">Muy barato y homologado.</div>
+<div class="product-footer">
+<a href="https://es.grandado.com/products/cascos-de-motocicleta-para-hombres-y-mujeres-casco-de-cara-completa-para-carreras-de-cuesta-abajo-casco-capacete-de-moto-aprobado-por-dot-para-kask" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/scorpion-exotech-evo.jpg">
+</div>
+<div class="product-title">Scorpion ExoTech EVO</div>
+<div class="product-desc">Modular premium a precio contenido.</div>
+<div class="product-footer">
+<a href="https://www.tradeinn.com/motardinn/es/scorpion-casco-modular-exo-tech-evo/139815601/p" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+</div>
+
+<!-- 👕 SUDADERAS -->
+<h3 style="margin-top:30px;">👕 Sudaderas</h3>
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/vaster-aramida.jpg">
+</div>
+<div class="product-title">Vaster Moto Aramida</div>
+<div class="product-desc">Protecciones CE y aramida por muy poco.</div>
+<div class="product-footer">
+<a href="https://es.findthedeal.org/p/B0F2HTWQ6M" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/macna-granyte.jpg">
+</div>
+<div class="product-title">Macna Granyte</div>
+<div class="product-desc">Marca premium a precio bajo.</div>
+<div class="product-footer">
+<a href="https://www.xlmoto.es/product/sudadera-de-moto-macna-granyte_pid-PIA-403966" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+</div>
+
+<!-- 👕 CAMISETAS -->
+<h3 style="margin-top:30px;">👕 Camisetas</h3>
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/kruskis-evolution.jpg">
+</div>
+<div class="product-title">Kruskis Evolution Motard</div>
+<div class="product-desc">100% algodón premium.</div>
+<div class="product-footer">
+<a href="https://www.tradeinn.com/motardinn/es/kruskis-camiseta-de-manga-corta-evolution-motard/142698794/p" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/mc1-tt.jpg">
+</div>
+<div class="product-title">MC1 TT</div>
+<div class="product-desc">Motera clásica y económica.</div>
+<div class="product-footer">
+<a href="https://es.grandado.com/products/camiseta-negra-de-motocicleta-para-hombre-camisa-mc-1-tt" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+</div>
+
+<!-- 👕 POLOS -->
+<h3 style="margin-top:30px;">👕 Polos</h3>
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/bmw-polo.jpg">
+</div>
+<div class="product-title">BMW Motorrad Polo Técnico</div>
+<div class="product-desc">Técnico y duradero.</div>
+<div class="product-footer">
+<a href="https://www.ebay.es/itm/304112582315" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/venum-motorsport-polo.jpg">
+</div>
+<div class="product-title">Venum Motorsport Polo</div>
+<div class="product-desc">Marca deportiva premium.</div>
+<div class="product-footer">
+<a href="https://www.motoblouz.es/ropa-casual-sportswear-46544-c.html?product=344546" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+</div>
+
+<!-- 🧤 GUANTES -->
+<h3 style="margin-top:30px;">🧤 Guantes</h3>
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/evermotor-touch.jpg">
+</div>
+<div class="product-title">Evermotor Verano Touch</div>
+<div class="product-desc">Táctiles, ventilados y baratos.</div>
+<div class="product-footer">
+<a href="https://es.findthedeal.org/p/B0F9WLKNRT" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/gms-vitoro.jpg">
+</div>
+<div class="product-title">GMS Vitoro WP</div>
+<div class="product-desc">Impermeables y equilibrados.</div>
+<div class="product-footer">
+<a href="https://www.xlmoto.es/product/guantes-de-moto-gms-vitoro-wp_pid-PIA-464676" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+</div>
+
+<!-- 🧥 CHAQUETAS -->
+<h3 style="margin-top:30px;">🧥 Chaquetas</h3>
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/raxus-coolpro.jpg">
+</div>
+<div class="product-title">RAXUS Track CoolPro</div>
+<div class="product-desc">Verano, protecciones CE y barata.</div>
+<div class="product-footer">
+<a href="https://es.findthedeal.org/p/B09841WVNC" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/oxford-jacket.jpg">
+</div>
+<div class="product-title">Oxford Moto Jacket</div>
+<div class="product-desc">Ventilada y cómoda.</div>
+<div class="product-footer">
+<a href="https://es.which.one/p/B07WPHN97P" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+<img src="img/gms-neo-wp.jpg">
+</div>
+<div class="product-title">GMS Neo WP</div>
+<div class="product-desc">Impermeable y con protecciones CE.</div>
+<div class="product-footer">
+<a href="https://www.xlmoto.es/product/chaqueta-de-moto-gms-neo-wp_pid-PIA-417688" target="_blank" class="btn-ghost">Ver producto</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SOBRE EL PROYECTO -->
+<section class="section" id="sobre">
+
+<div class="section-header">
+<h2 class="section-title">Sobre el proyecto</h2>
+<span class="section-subtitle">MT-09 SP · CP3</span>
+</div>
+
+<div class="about-card">
+
+<div>
+<span class="about-badge">Proyecto personal</span>
+
+<p class="about-text">
+Este proyecto gira en torno a una Yamaha MT-09 SP con motor CP3. La idea es documentar rutas,
+modificaciones y detalles estéticos, además de recopilar fotos y momentos que definan la moto
+tal y como se vive en el día a día.
+</p>
+
+<ul class="about-list">
+<li>• Rutas por carretera y sierra</li>
+<li>• Mods estéticos y funcionales</li>
+<li>• Configuraciones y pequeños detalles</li>
+</ul>
+
+<div class="about-tagline">
+Más que una moto: un proyecto en constante evolución.
+</div>
+</div>
+
+<div class="about-side">
+
+<div class="about-side-row">
+<span class="about-side-label">Modelo</span>
+<span class="about-side-value">Yamaha MT-09 SP</span>
+</div>
+
+<div class="about-side-row">
+<span class="about-side-label">Motor</span>
+<span class="about-side-value">CP3</span>
+</div>
+
+<div class="about-side-row">
+<span class="about-side-label">Enfoque</span>
+<span class="about-side-value">Rutas · Mods · Fotos</span>
+</div>
+
+<div class="about-side-row">
+<span class="about-side-label">Instagram</span>
+<span class="about-side-value">@mt09sp_cp3</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<span>Proyecto MT-09 · GitHub Pages</span>
+<span>Instagram: <a href="https://www.instagram.com/mt09sp_cp3" target="_blank">@mt09sp_cp3</a></span>
+</footer>
+
+<script>
+function openZoom(src) {
+const overlay = document.getElementById('zoomOverlay');
+const img = document.getElementById('zoomImage');
+img.src = src;
+overlay.style.display = 'flex';
+}
+
+function closeZoom() {
+const overlay = document.getElementById('zoomOverlay');
+overlay.style.display = 'none';
+}
+
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+closeZoom();
+}
+});
+</script>
+
 </body>
 </html>
-
 
